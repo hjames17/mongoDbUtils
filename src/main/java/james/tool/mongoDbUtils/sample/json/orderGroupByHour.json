@@ -1,0 +1,15 @@
+{
+  aggregate: 'order',
+  pipeline: [
+    {
+      $group:
+      {
+        _id:
+        {
+          weekDay: {$dayOfWeek:'$date'}
+        },
+        count:{$sum:1}
+      }
+    }
+  ]
+}
